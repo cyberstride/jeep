@@ -26,14 +26,28 @@ describe('The app', function(){
 
     	piton.init();
     });
+
+    it('should run a module that is in the lib folder', function(){
+    	piton.init();
+    	assert.ok(piton.app.libTest);
+    });
   });
+
   describe('when loadDirectory is called', function(){
   	var controllerPath = path.join(__dirname, 'testApp/app/controllers');
+  	var modelPath = path.join(__dirname, 'testApp/app/models');
 
-  	it('should return an object with the files in the directory', function(){
+  	it('should return an object with the js files in the directory', function(){
   		var obj = Piton.loadDirectory(controllerPath, piton.app);
   		assert.ok(obj);
   		assert.ok(obj.home);
-  	})
+  	});
+
+  	it('should load json files as well', function(){
+  		var obj = Piton.loadDirectory(modelPath, piton.app);
+  		assert.ok(obj);
+  		assert.ok(obj.thing);
+  		assert.equal(obj.thing.foo,'bar');
+  	});
   });
 })
