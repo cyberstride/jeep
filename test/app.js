@@ -31,6 +31,11 @@ describe('The app', function(){
     	piton.init();
     	assert.ok(piton.app.libTest);
     });
+
+    it('should have a path variable assigned to its config',function(){
+    	piton.init();
+    	assert.ok(piton.app.config.path);
+    });
   });
 
   describe('when loadDirectory is called', function(){
