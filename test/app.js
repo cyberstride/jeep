@@ -6,25 +6,20 @@ describe('The app', function(){
 	var piton = new Piton(__dirname+'/testApp');
   describe('when init is called', function(){
     it('should raise a configured event with options', function(){
-    	piton.on('configured',function(){
-    		assert.notEqual(null,piton.options);
-    	});
-
     	piton.init();
+      assert.notEqual(null,piton.options);
     });
 
     it('should raise an app_loaded event when modules are done loading',function(){
-    	piton.on('app_loaded', function(){
-    		var app = piton.app;
-    		assert.notEqual('undefined', app.models);
-    		assert.notEqual('undefined', app.controllers);
-    		assert.notEqual('undefined', app.middleware);
-    		assert.equal(null, app.public);
-    		assert.equal(null, app.views);
-    		assert.equal(null, app.lib);	
-    	});
-
+    	
     	piton.init();
+      var app = piton.app;
+      assert.notEqual('undefined', app.models);
+      assert.notEqual('undefined', app.controllers);
+      assert.notEqual('undefined', app.middleware);
+      assert.equal(null, app.public);
+      assert.equal(null, app.views);
+      assert.equal(null, app.lib);  
     });
 
     it('should run a module that is in the lib folder', function(){
