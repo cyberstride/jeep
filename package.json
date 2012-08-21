@@ -1,7 +1,7 @@
 {
   "name": "piton",
-  "version": "0.0.9",
-  "description": "A simple, adaptive, 12-factor app framework for nodejs and express 3",
+  "version": "0.0.10",
+  "description": "A simple, adaptive app framework for nodejs and express 3",
   "main": "index.js",
   "engines" : {
     "node" : ">=0.8.6"
