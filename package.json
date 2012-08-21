@@ -1,5 +1,5 @@
 {
-  "name": "piton",
+  "name": "jeep",
   "version": "0.0.10",
   "description": "A simple, adaptive app framework for nodejs and express 3",
   "main": "index.js",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/cyberstride/piton.git"
+    "url": "git://github.com/cyberstride/jeep.git"
   },
   "keywords": [
     "nodejs",

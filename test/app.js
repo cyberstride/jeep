@@ -1,19 +1,19 @@
 var assert = require("assert"),
 	path = require('path'),
-	Piton = require('../lib/app');
+	Jeep = require('../lib/app');
 
 describe('The app', function(){
-	var piton = new Piton(__dirname+'/testApp');
+	var jeep = new Jeep(__dirname+'/testApp');
   describe('when init is called', function(){
     it('should raise a configured event with options', function(){
-    	piton.init();
-      assert.notEqual(null,piton.options);
+    	jeep.init();
+      assert.notEqual(null,jeep.options);
     });
 
     it('should raise an app_loaded event when modules are done loading',function(){
     	
-    	piton.init();
-      var app = piton.app;
+    	jeep.init();
+      var app = jeep.app;
       assert.notEqual('undefined', app.models);
       assert.notEqual('undefined', app.controllers);
       assert.notEqual('undefined', app.middleware);
@@ -23,13 +23,13 @@ describe('The app', function(){
     });
 
     it('should run a module that is in the lib folder', function(){
-    	piton.init();
-    	assert.ok(piton.app.libTest);
+    	jeep.init();
+    	assert.ok(jeep.app.libTest);
     });
 
     it('should have a path variable assigned to its config',function(){
-    	piton.init();
-    	assert.ok(piton.app.config.path);
+    	jeep.init();
+    	assert.ok(jeep.app.config.path);
     });
   });
 
@@ -38,13 +38,13 @@ describe('The app', function(){
   	var modelPath = path.join(__dirname, 'testApp/app/models');
 
   	it('should return an object with the js files in the directory', function(){
-  		var obj = Piton.loadDirectory(controllerPath, piton.app);
+  		var obj = Jeep.loadDirectory(controllerPath, jeep.app);
   		assert.ok(obj);
   		assert.ok(obj.home);
   	});
 
   	it('should load json files as well', function(){
-  		var obj = Piton.loadDirectory(modelPath, piton.app);
+  		var obj = Jeep.loadDirectory(modelPath, jeep.app);
   		assert.ok(obj);
   		assert.ok(obj.thing);
   		assert.equal(obj.thing.foo,'bar');
