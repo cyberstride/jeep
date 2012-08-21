@@ -1,6 +1,6 @@
 {
   "name": "jeep",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A simple, adaptive app framework for nodejs and express 3",
   "main": "index.js",
   "engines" : {
